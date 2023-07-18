@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Parts Data</h1>
+        <h1>Parts Data for "{partNumber}"</h1>
         <div className="table-container">
           <table>
             <tr>
