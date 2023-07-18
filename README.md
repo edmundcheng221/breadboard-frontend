@@ -24,6 +24,8 @@ $ npm install
 
 # Serving Application
 
+Run this command to serve the application on port 3000
+
 ```
 $ npm run start
 ```
