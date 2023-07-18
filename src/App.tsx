@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 function App() {
+
+  useEffect(() => {
+    fetch("http://localhost:3080/v1/parts?partNumber=0510210200")
+      .then(res => res.json())
+      .then(data => console.log(data))
+  })
+
   return (
     <div className="App">
       <header className="App-header">
