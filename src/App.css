@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #f90000;
+  text-align: left;
+  padding: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+tr:nth-child(even) {
+  background-color: #4c1f1f;
+}
