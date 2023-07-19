@@ -4,20 +4,20 @@ import { AggregatedPart } from './types/parts.type';
 
 
 function App() {
-  const partNumber = '0510210200';
-  const [partsData, setPartsData] = useState<AggregatedPart[] | null>(null);
+  const partNumber = '510210200';
+  const [partsData, setPartsData] = useState<AggregatedPart | null>(null);
 
   useEffect(() => {
     fetch(`http://localhost:3080/v1/parts?partNumber=${partNumber}}`)
       .then(res => res.json())
-      .then(data => setPartsData([data]))
+      .then(data => setPartsData(data))
       .catch(err => console.error(`Failed to fetch parts data ${err}`));
   }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Parts Data for "{partNumber}"</h1>
+        <h1>Aggregated Parts Data for {partNumber}</h1>
         <div className="table-container">
           <table>
             <tr>
@@ -30,20 +30,18 @@ function App() {
               <th>Product Image URL</th>
             </tr>
             {partsData ? (
-              partsData.map((part, index) => (
-                <tr key={index}>
-                  <td>{part.name}</td>
-                  <td>{part.description}</td>
-                  <td>{part.totalStock}</td>
-                  <td>{part.manufacturerLeadTime}</td>
-                  <td><a href={part.productDoc} target='_blank' rel="noreferrer">{part.productDoc}</a></td>
-                  <td><a href={part.productUrl} target='_blank' rel="noreferrer">{part.productUrl}</a></td>
-                  <td><a href={part.productImageUrl} target='_blank' rel="noreferrer">{part.productImageUrl}</a></td>
+                <tr>
+                  <td>{partsData.name}</td>
+                  <td>{partsData.description}</td>
+                  <td>{partsData.totalStock}</td>
+                  <td>{partsData.manufacturerLeadTime}</td>
+                  <td><a href={partsData.productDoc} target='_blank' rel="noreferrer">{partsData.productDoc}</a></td>
+                  <td><a href={partsData.productUrl} target='_blank' rel="noreferrer">{partsData.productUrl}</a></td>
+                  <td><a href={partsData.productImageUrl} target='_blank' rel="noreferrer">{partsData.productImageUrl}</a></td>
                   {/* ...whatever data we want */}
                 </tr>
-              ))
             ) : (
-              <p>Loading parts data...</p>
+              <p className='loading'>Loading parts data...</p>
             )}
           </table>
         </div>
