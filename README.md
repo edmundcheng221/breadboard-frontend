@@ -6,13 +6,14 @@ Implement a REST endpoint and simple client that will accept a query parameter f
 
 This application is running on React 18
 
-This application doesn't do much, it just injects the endpoint
+This application doesn't do much, it just ingests the endpoint
 
 `http://localhost:3080/v1/parts?partNumber=0510210200`
 
+and displays the result to the user.
+
 The part number in this case is `0510210200`
 
-And displays the result to the user
 
 # Installation
 
