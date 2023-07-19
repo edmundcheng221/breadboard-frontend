@@ -4,7 +4,7 @@ import { AggregatedPart } from './types/parts.type';
 
 
 function App() {
-  const partNumber = '510210200';
+  const partNumber = '0510210200'.replace(/^0+|\D/g, '');
   const [partsData, setPartsData] = useState<AggregatedPart | null>(null);
 
   useEffect(() => {
