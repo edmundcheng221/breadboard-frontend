@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     fetch(`http://localhost:3080/v1/parts?partNumber=${partNumber}}`)
       .then(res => res.json())
-      .then(data => setPartsData(data))
+      .then(data => setPartsData([data]))
       .catch(err => console.error(`Failed to fetch parts data ${err}`));
   }, []);
 
